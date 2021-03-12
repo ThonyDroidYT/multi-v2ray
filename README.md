@@ -63,22 +63,22 @@ V2ray/Xray Secuencia de comandos de administración de múltiples usuarios, admi
 
 ## Instalar comando
 ```
-source <(curl -sL http://v2ray.admplus.tk) --zh
+source <(curl -sL http://v2ray.admplus.tk/v2ray.sh) --zh
 ```
 
 ## Comando de actualización (mantener actualizado el archivo de configuración)
 ```
-source <(curl -sL http://v2ray.admplus.tk) -k
+source <(curl -sL http://v2ray.admplus.tk/v2ray.sh) -k
 ```
 ##### Install Mod
 ```
 source <(curl -sL https://git.io/admplusv2ray) --zh
-source <(curl -sL http://v2ray.admplus.tk) --zh
+source <(curl -sL http://v2ray.admplus.tk/v2ray.sh) --zh
 ```
 
 ## Comando de desinstalación
 ```
-source <(curl -sL http://v2ray.admplus.tk) --remove
+source <(curl -sL http://v2ray.admplus.tk/v2ray.sh) --remove
 ```
 
 ## Parámetros de línea de comando
