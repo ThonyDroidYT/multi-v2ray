@@ -70,7 +70,6 @@ def help():
     log                  check {bin} log
     rm                   uninstall {bin}
         """.format(exec_name[exec_name.rfind("/") + 1:], bin=run_type))
-
     else:
         print("""
 {0} [-h|help] [options]
