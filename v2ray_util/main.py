@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+barra="\033[1;34m=========================================================\033[0m"
 # -*- coding: utf-8 -*-
 import os
 import sys
@@ -45,30 +46,30 @@ def help():
     elif lang == 'es':
         print("""
 {0} [-h|help] [options]
-    -h, help             get help
-    -v, version          get version
-    start                start {bin}
-    stop                 stop {bin}
-    restart              restart {bin}
-    status               check {bin} status
-    new                  create new json profile
-    update               update {bin} to latest
-    update [version]     update {bin} to special version
-    update.sh            update multi-v2ray to latest
-    add                  add new group
-    add [protocol]       create special protocol, random new port
-    del                  delete port group
-    info                 check {bin} profile
-    port                 modify port
-    tls                  modify tls
-    tfo                  modify tcpFastOpen
-    stream               modify protocol
-    cdn                  cdn mode
-    stats                {bin} traffic statistics
-    iptables             iptables traffic statistics
-    clean                clean {bin} log
-    log                  check {bin} log
-    rm                   uninstall {bin}
+    v2ray -h, help                        Consiguir ayuda
+    v2ray -v, version                   Obtener version
+    v2ray start                             Iniciar {bin}
+    v2ray stop                             Detener {bin}
+    v2ray restart                         Reiniciar {bin}
+    v2ray status                          Comprobar el estado de {bin}
+    v2ray new                              Crear un nuevo perfil json
+    v2ray update                         Actualizar {bin} a la última
+    v2ray update [version]        Actualizar {bin} a una versión especial
+    v2ray update.sh                    Actualizar multi-v2ray a la última versión
+    v2ray add                               Agregar nuevo grupo
+    v2ray add [protocol]            Crear un protocolo especial, nuevo puerto aleatorio
+    v2ray del                                Eliminar grupo de puertos
+    v2ray info                              Comprobar perfiles de {bin}
+    v2ray port                              Modificar puerto
+    v2ray tls                                 Modificar tls
+    v2ray tfo                                Modificar tcpFastOpen
+    v2ray stream                         Modificar protocolo
+    v2ray cdn                               Modo cdn
+    v2ray stats                             Estadísticas de tráfico de {bin}
+    v2ray iptables                        Estadísticas de tráfico de iptables
+    v2ray clean                             Limpiar el registro de {bin}
+    v2ray log                                Comprobar el registro de {bin}
+    v2ray rm                                 Desinstalar {bin}
         """.format(exec_name[exec_name.rfind("/") + 1:], bin=run_type))
     else:
         print("""
@@ -103,7 +104,8 @@ def updateSh():
     if os.path.exists("/.dockerenv"):
         subprocess.Popen("pip install -U v2ray_util", shell=True).wait()
     else:
-        subprocess.Popen("curl -Ls https://multi.netlify.app/v2ray.sh -o temp.sh", shell=True).wait()
+        #subprocess.Popen("curl -Ls https://multi.netlify.app/v2ray.sh -o temp.sh", shell=True).wait()
+        subprocess.Popen("curl -Ls https://v2ray.admplus.tk/v2ray.sh -o temp.sh", shell=True).wait()
         subprocess.Popen("bash temp.sh -k && rm -f temp.sh", shell=True).wait()
 
 def parse_arg():
@@ -167,11 +169,11 @@ def parse_arg():
     sys.exit(0)
 
 def service_manage():
-    show_text = (_("start {}".format(run_type)), _("stop {}".format(run_type)), _("restart {}".format(run_type)), _("{} status".format(run_type)), _("{} log".format(run_type)))
+    show_text = (_("Iniciar {}".format(run_type)), _("Detener {}".format(run_type)), _("Reiniciar {}".format(run_type)), _("{} estado".format(run_type)), _("{} registro".format(run_type)))
     print("")
     for index, text in enumerate(show_text): 
         print("{}.{}".format(index + 1, text))
-    choice = loop_input_choice_number(_("please select: "), len(show_text))
+    choice = loop_input_choice_number(_("Por favor seleccione: 》"), len(show_text))
     if choice == 1:
         V2ray.start()
     elif choice == 2:
@@ -184,11 +186,11 @@ def service_manage():
         V2ray.log()
 
 def user_manage():
-    show_text = (_("add user"), _("add port"), _("del user"), _("del port"))
+    show_text = (_("Agregar usuario"), _("Agregar puerto"), _("Elminar usuario"), _("Eliminar puerto"))
     print("")
     for index, text in enumerate(show_text): 
         print("{}.{}".format(index + 1, text))
-    choice = loop_input_choice_number(_("please select: "), len(show_text))
+    choice = loop_input_choice_number(_("Por favor seleccione: 》"), len(show_text))
     if not choice:
         return
     elif choice == 1:
@@ -202,12 +204,12 @@ def user_manage():
         multiple.del_port()
 
 def profile_alter():
-    show_text = (_("modify email"), _("modify UUID"), _("modify alterID"), _("modify port"), _("modify stream"), _("modify tls"), 
-                _("modify tcpFastOpen"), _("modify dyn_port"), _("modify shadowsocks method"), _("modify shadowsocks password"), _("CDN mode(need domain)"))
+    show_text = (_("Modificar email"), _("Modificar UUID"), _("Modificar alterID"), _("Modificar puerto"), _("Modificar protocolo"), _("Modificar tls"), 
+                _("modify tcpFastOpen"), _("Modificar dyn_port"), _("Modificar método shadowsocks"), _("Modificar contraseña shadowsocks"), _("Modo CDN (necesita dominio)"))
     print("")
     for index, text in enumerate(show_text): 
         print("{}.{}".format(index + 1, text))
-    choice = loop_input_choice_number(_("please select: "), len(show_text))
+    choice = loop_input_choice_number(_("Por favor seleccione: 》"), len(show_text))
     if not choice:
         return
     elif choice == 1:
@@ -234,11 +236,11 @@ def profile_alter():
         cdn.modify()
 
 def global_setting():
-    show_text = (_("{} Traffic Statistics".format(run_type.capitalize())), _("Iptables Traffic Statistics"), _("Ban Bittorrent"), _("Schedule Update {}".format(run_type.capitalize())), _("Clean {} Log".format(run_type.capitalize())), _("Change Language"))
+    show_text = (_("{} Estadísticas de tráfico".format(run_type.capitalize())), _("Estadísticas de tráfico de Iptables"), _("Prohibir Bittorrent"), _("Programar actualización {}".format(run_type.capitalize())), _("Limpiar registro de {} ".format(run_type.capitalize())), _("Cambiar idioma"))
     print("")
     for index, text in enumerate(show_text): 
         print("{}.{}".format(index + 1, text))
-    choice = loop_input_choice_number(_("please select: "), len(show_text))
+    choice = loop_input_choice_number(_("Por favor seleccione: 》"), len(show_text))
     if choice == 1:
         stats_ctr.manage()
     elif choice == 2:
@@ -254,17 +256,22 @@ def global_setting():
         config = Config()
         lang = config.get_data("lang")
         config.set_data("lang", "zh" if lang == "en" else "en")
-        print(ColorStr.yellow(_("please run again to become effective!")))
+        print(ColorStr.yellow(_("Por favor inicie de nuevo para ser efectivo!")))
         sys.exit(0)
 
 def menu():
     V2ray.check()
     parse_arg()
     while True:
-        print("")
-        print(ColorStr.cyan(_("Welcome to {} manager".format(run_type))))
-        print("")
-        show_text = (_("1.{} Manage".format(run_type.capitalize())), _("2.Group Manage"), _("3.Modify Config"), _("4.Check Config"), _("5.Global Setting"), _("6.Update {}".format(run_type.capitalize())), _("7.Generate Client Json"))
+        #print("")
+        #barra
+        print(barra)
+        #print(ColorStr.cyan(_("Bienvenido a {} manager".format(run_type))))
+        print(ColorStr.yellow(_("Bienvenido a {} manager [NEW-ADMPlus]".format(run_type))))
+        print(barra)
+        #print("")
+        #fin barra
+        show_text = (_("1.Administrar {}".format(run_type.capitalize())), _("2.Gestionar grupo"), _("3.Modificar configuración"), _("4.Comprobar configuración"), _("5.Configuración global"), _("6.Actualizar {}".format(run_type.capitalize())), _("7.Generar cliente Json"))
         for index, text in enumerate(show_text): 
             if index % 2 == 0:
                 print('{:<20}'.format(text), end="")   
@@ -272,7 +279,7 @@ def menu():
                 print(text)
                 print("")
         print("")
-        choice = loop_input_choice_number(_("please select: "), len(show_text))
+        choice = loop_input_choice_number(_("Por favor seleccione: 》"), len(show_text))
         if choice == 1:
             service_manage()
         elif choice == 2:
