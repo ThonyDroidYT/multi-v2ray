@@ -69,7 +69,7 @@ while [[ $# > 0 ]];do
         ;;
         --es)
         SPANISH=1
-        colorEcho ${BLUE} "安装中文版..\n"
+        colorEcho ${BLUE} "Instalando la versión en español..\n"
         ;;        
         *)
                 # unknown option
