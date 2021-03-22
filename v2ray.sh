@@ -126,7 +126,7 @@ removeV2Ray() {
     sed -i '/xray/d' ~/$ENV_FILE
     source ~/$ENV_FILE
 
-    colorEcho ${GREEN} "desinstalaso exitosamente!"
+    colorEcho ${GREEN} "desinstalado exitosamente!"
 }
 
 closeSELinux() {
