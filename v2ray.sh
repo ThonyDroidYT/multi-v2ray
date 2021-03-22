@@ -80,10 +80,10 @@ done
 
 help(){
     echo "bash v2ray.sh [-h|--help] [-k|--keep] [--remove]"
-    echo "  -h, --help           Mostrar ayuda"
-    echo "  -k, --keep           Mantener config.json para actualizar"
+    echo "  -h, --help          Mostrar ayuda"
+    echo "  -k, --keep          Mantener config.json para actualizar"
     echo "      --remove        Remover v2ray,xray && multi-v2ray"
-    echo "                              Sin parámetros para una nueva instalación"
+    echo "                      Sin parámetros para una nueva instalación"
     return 0
 }
 
