@@ -66,10 +66,10 @@ while [[ $# > 0 ]];do
         CHINESE=1
         colorEcho ${BLUE} "Instalar la versión china.\n"
         ;;
-        --es)
-        SPANISH=1
-        colorEcho ${BLUE} "Instalar la versión en español.\n"
-        ;;
+        #--es)
+        #SPANISH=1
+        #colorEcho ${BLUE} "Instalar la versión en español.\n"
+        #;;
         *)
                 # unknown option
         ;;
