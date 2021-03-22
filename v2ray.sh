@@ -258,7 +258,7 @@ main() {
 
     [[ ${REMOVE} == 1 ]] && removeV2Ray && return
 
-    [[ ${INSTALL_WAY} == 0 ]] && colorEcho ${BLUE} "nueva instalación\n"
+    [[ ${INSTALL_WAY} == 0 ]] && colorEcho ${BLUE} "nueva instalacion"
 
     checkSys
 
