@@ -8,7 +8,7 @@ LABEL maintainer "Jrohy <euvkzx@Jrohy.com>"
 
 ENV COMPLETION_FILE "/usr/share/bash-completion/completions/v2ray"
 
-#ENV SOURCE_COMPLETION_FILE "https://v2ray.admplus.tk/v2ray"
+ENV SOURCE_COMPLETION_FILE "https://v2ray.admplus.tk/v2ray"
 
 ENV VERSION_LIST "https://api.github.com/repos/ThonyDroidYT/multi-v2ray/tags"
 
