@@ -89,7 +89,6 @@ help(){
 
 removeV2Ray() {
     #卸载V2ray脚本
-    #bash #<(curl -L -s https://multi.netlify.app/go.sh)# --remove >/dev/null 2>&1
     bash <(curl -L -s https://${BASE_SOURCE_PATH}/go.sh) --remove >/dev/null 2>&1
     rm -rf /etc/v2ray >/dev/null 2>&1
     rm -rf /var/log/v2ray >/dev/null 2>&1
@@ -239,7 +238,7 @@ installFinish() {
     #回到原点
     cd ${BEGIN_PATH}
 
-    [[ ${INSTALL_WAY} == 0 ]] && WAY="instalado" || WAY="actualizado"
+    [[ ${INSTALL_WAY} == 0 ]] && WAY="install" || WAY="update"
     colorEcho  ${GREEN} "multi-v2ray ${WAY} con éxito!\n"
 
     if [[ ${INSTALL_WAY} == 0 ]]; then
@@ -258,7 +257,7 @@ main() {
 
     [[ ${REMOVE} == 1 ]] && removeV2Ray && return
 
-    [[ ${INSTALL_WAY} == 0 ]] && colorEcho ${BLUE} "nueva instalacion"
+    [[ ${INSTALL_WAY} == 0 ]] && colorEcho ${BLUE} "nueva instalacion\n"
 
     checkSys
 
