@@ -89,12 +89,12 @@ help(){
 
 removeV2Ray() {
     #卸载V2ray脚本
-    bash <(curl -L -s https://${BASE_SOURCE_PATH}/go.sh) --remove >/dev/null 2>&1
+    bash <(curl -L -s ${BASE_SOURCE_PATH}/go.sh) --remove >/dev/null 2>&1
     rm -rf /etc/v2ray >/dev/null 2>&1
     rm -rf /var/log/v2ray >/dev/null 2>&1
 
     #卸载Xray脚本
-    bash <(curl -L -s https://${BASE_SOURCE_PATH}/go.sh) --remove -x >/dev/null 2>&1
+    bash <(curl -L -s ${BASE_SOURCE_PATH}/go.sh) --remove -x >/dev/null 2>&1
     rm -rf /etc/xray >/dev/null 2>&1
     rm -rf /var/log/xray >/dev/null 2>&1
 
@@ -200,7 +200,7 @@ updateProject() {
     fi
     
     #安装V2ray主程序
-    [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s https://${BASE_SOURCE_PATH}/go.sh)
+    [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s ${BASE_SOURCE_PATH}/go.sh)
 }
 
 #时间同步
