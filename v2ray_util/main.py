@@ -235,13 +235,10 @@ def menu():
     V2ray.check()
     parse_arg()
     while True:
-        #print("")
-        #barra
         print(barra)
         #print(ColorStr.cyan(_("Bienvenido a {} manager".format(run_type))))
         print(ColorStr.yellow(_("Bienvenido a {} manager [NEW-ADMPlus]".format(run_type))))
         print(barra)
-        #print("")
         #fin barra
         show_text = (_("1.Administrar {}".format(run_type.capitalize())), _("2.Gestionar grupo"), _("3.Modificar configuración"), _(" 4.Comprobar configuración"), _("5.Configuración global"), _(" 6.Actualizar {}".format(run_type.capitalize())), _("7.Generar cliente Json"))
         for index, text in enumerate(show_text): 
