@@ -18,9 +18,9 @@ REMOVE=0
 
 CHINESE=0
 
-#BASE_SOURCE_PATH="https://multi.netlify.app"
+BASE_SOURCE_PATH="https://multi.netlify.app"
 #BASE_SOURCE_PATH="https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master"
-BASE_SOURCE_PATH="http://v2ray.admplus.tk"
+#BASE_SOURCE_PATH="http://v2ray.admplus.tk"
 
 UTIL_PATH="/etc/v2ray_util/util.cfg"
 
