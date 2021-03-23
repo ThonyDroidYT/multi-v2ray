@@ -43,7 +43,7 @@ def help():
     log                  查看日志
     rm                   卸载{bin}
         """.format(exec_name[exec_name.rfind("/") + 1:], bin=run_type))
-    elif lang == 'es':
+    #elif lang == 'es':
         print("""
 {0} [-h|help] [options]
     v2ray -h, help                        Consiguir ayuda
