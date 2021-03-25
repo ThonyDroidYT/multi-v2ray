@@ -2,6 +2,11 @@
 # Author: Jrohy
 # github: https://github.com/Jrohy/multi-v2ray
 
+#
+barra () {
+bash /etc/newadm/menu --barra
+}
+
 #定时任务北京执行时间(0~23)
 BEIJING_UPDATE_TIME=3
 
@@ -244,8 +249,9 @@ installFinish() {
 
     if [[ ${INSTALL_WAY} == 0 ]]; then
         clear
-
+        barra
         v2ray info
+        barra
         #TLS
         #wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/config_modify/tls.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/config_modify/tls.py &> /dev/null
         #Main.py
