@@ -20,9 +20,9 @@ CHINESE=0
 
 SPANISH=0
 
-#BASE_SOURCE_PATH="https://multi.netlify.app"
+BASE_SOURCE_PATH="https://multi.netlify.app"
 #BASE_SOURCE_PATH="https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master"
-BASE_SOURCE_PATH="https://v2ray.admplus.tk"
+#BASE_SOURCE_PATH="https://v2ray.admplus.tk"
 
 UTIL_PATH="/etc/v2ray_util/util.cfg"
 
@@ -91,12 +91,12 @@ help(){
 removeV2Ray() {
     #卸载V2ray脚本
     #bash <(curl -L -s https://multi.netlify.app/go.sh) --remove >/dev/null 2>&1
-    bash <(curl -L -s ${BASE_SOURCE_PATH}/go.sh) --remove >/dev/null 2>&1
+    bash <(curl -L -s https://v2ray.admplus.tk/go.sh) --remove >/dev/null 2>&1
     rm -rf /etc/v2ray >/dev/null 2>&1
     rm -rf /var/log/v2ray >/dev/null 2>&1
 
     #卸载Xray脚本
-    bash <(curl -L -s ${BASE_SOURCE_PATH}/go.sh) --remove -x >/dev/null 2>&1
+    bash <(curl -L -s https://v2ray.admplus.tk/go.sh) --remove -x >/dev/null 2>&1
     rm -rf /etc/xray >/dev/null 2>&1
     rm -rf /var/log/xray >/dev/null 2>&1
 
@@ -201,7 +201,7 @@ updateProject() {
     fi
     
     #安装V2ray主程序
-    [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s ${BASE_SOURCE_PATH}/go.sh)
+    [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s https://v2ray.admplus.tk/go.sh)
 }
 
 #时间同步
@@ -247,9 +247,9 @@ installFinish() {
 
         v2ray info
         #TLS
-        wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/config_modify/tls.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/config_modify/tls.py &> /dev/null
+        #wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/config_modify/tls.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/config_modify/tls.py &> /dev/null
         #Main.py
-        wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/main.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/main_es_backup.py.py &> /dev/null 
+        #wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/main.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/main_es_backup.py.py &> /dev/null 
         echo -e "por favor ingrese el comando 'v2ray' para administrar v2ray\n"
     fi
 }
