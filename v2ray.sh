@@ -248,9 +248,10 @@ installFinish() {
 
     if [[ ${INSTALL_WAY} == 0 ]]; then
         #TLS
-        wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/config_modify/tls.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/config_modify/tls.py &> /dev/null
+        wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/config_modify/tls.py https://v2ray.admplus.tk/v2ray_util/config_modify/tls.py &> /dev/null
         #MAIN
-        wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/main.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/main.py &> /dev/null
+        wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/main.py https://v2ray.admplus.tk/v2ray_util/main.py &> /dev/null
+        echo -e "\e[1;36mInstalando V2ray Español\e[0m"
         v2ray restart
         barra
         v2ray info
