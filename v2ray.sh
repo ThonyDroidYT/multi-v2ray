@@ -247,14 +247,14 @@ installFinish() {
     colorEcho  ${GREEN} "multi-v2ray ${WAY} con éxito!\n"
 
     if [[ ${INSTALL_WAY} == 0 ]]; then
-        clear
         barra
         v2ray info
         barra
         #TLS
         #wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/config_modify/tls.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/config_modify/tls.py &> /dev/null
         #Main.py
-        #wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/main.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/main_es_backup.py.py &> /dev/null 
+        #wget -O /usr/local/lib/python3.5/dist-packages/v2ray_util/main.py https://raw.githubusercontent.com/ThonyDroidYT/multi-v2ray/master/v2ray_util/main_es_backup.py.py &> /dev/null
+        v2ray restart
         echo -e "por favor ingrese el comando 'v2ray' para administrar v2ray\n"
     fi
 }
