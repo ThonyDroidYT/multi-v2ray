@@ -11,8 +11,9 @@ def manage():
 
     profile = loader.profile
 
-    print("{}: {}".format(_("Ban BT status"), profile.ban_bt))
-
+    #print("{}: {}".format(_("Ban BT status"), profile.ban_bt))
+    print("{}: {}".format(_("Estado BanBT"), profile.ban_bt))
+    
     choice = readchar(_("Ban BT?(y/n): ")).lower()
 
     if not choice:
@@ -24,6 +25,7 @@ def manage():
 
     gw.write_ban_bittorrent(ban_bt)
 
-    print(_("modify success!"))
+    #print(_("modify success!"))
+    print(_("Modificado con éxito!"))
     
     return True
