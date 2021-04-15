@@ -243,7 +243,8 @@ def menu():
         print(barra)
         #fin barra
         print("")
-        show_text = (_("1.Administrar {}".format(run_type.capitalize())), _("2.Gestionar grupo"), _("3.Modificar configuración"), _(" 4.Comprobar configuración"), _("5.Configuración global"), _(" 6.Actualizar {}".format(run_type.capitalize())), _("7.Generar cliente Json"))
+        #show_text = (_("1.Administrar {}".format(run_type.capitalize())), _("2.Gestionar grupo"), _("3.Modificar configuración"), _(" 4.Comprobar configuración"), _("5.Configuración global"), _(" 6.Actualizar {}".format(run_type.capitalize())), _("7.Generar cliente Json"))
+        show_text = (_("1.Administrar {}".format(run_type.capitalize())), _("      2.Gestionar grupo"), _("3.Modificar configuración"), _(" 4.Comprobar configuración"), _("5.Configuración global"), _(" 6.Actualizar {}".format(run_type.capitalize())), _("7.Generar cliente Json"))
         for index, text in enumerate(show_text): 
             if index % 2 == 0:
                 print('{:<20}'.format(text), end="")   
