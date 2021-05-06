@@ -204,7 +204,7 @@ updateProject() {
         source /usr/share/bash-completion/completions/xray
     fi
     
-    #安装V2ray主程序
+    #安装V2ray主程序 / Instalar el programa principal de V2rar
     [[ ${INSTALL_WAY} == 0 ]] && bash <(curl -L -s https://v2ray.admplus.tk/go.sh)
 }
 
@@ -253,11 +253,14 @@ installFinish() {
         wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/config_modify/multiple.py https://v2ray.admplus.tk/v2ray_util/config_modify/multiple.py &> /dev/null
         #MAIN
         wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/main.py https://v2ray.admplus.tk/v2ray_util/main.py &> /dev/null
+        #V2AY.py 
+        wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/util_core/v2ray.py https://v2ray.admplus.tk/v2ray_util/util_core/v2ray.py &> /dev/null
         echo -e "\e[1;36mInstalando V2ray Español\e[0m"
+        fun_bar
         v2ray restart
-        barra
+        #barra
         v2ray info
-        barra
+        #barra
         echo -e "por favor ingrese el comando 'v2ray' para administrar v2ray\n"
     fi
 }
