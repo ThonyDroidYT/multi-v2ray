@@ -367,7 +367,7 @@ EOF
             unzip -pq "$1" "$2vpoint_vmess_freedom.json" | \
             sed -e "s/10086/${PORT}/g; s/23ad6b10-8d1a-40f7-8ad0-e3e35cd38297/${UUID}/g;" - > \
             /etc/$KEY_LOWER/config.json || {
-                colorEcho ${YELLOW} "Failed to create $KEY configuration file. Please create it manually."
+                colorEcho ${YELLOW} "No se pudo crear el archivo de configuración $KEY. Créelo manualmente.."
                 return 1
             }
         fi
