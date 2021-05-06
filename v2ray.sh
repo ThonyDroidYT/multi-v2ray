@@ -260,11 +260,11 @@ installFinish() {
         #barra
         clear
         msg -bar
-        colorEcho  ${GREEN} "Información de cuenta creada\n"
+        colorEcho  ${GREEN} "Información de cuenta creada"
         msg -bar
         v2ray info
         #barra
-        echo -e "por favor ingrese el comando 'v2ray' para administrar v2ray\n"
+        echo -e "por favor ingrese el comando 'v2ray' para administrar v2ray"
     fi
 }
 
