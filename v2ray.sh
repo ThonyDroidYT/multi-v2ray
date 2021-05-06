@@ -249,6 +249,8 @@ installFinish() {
     if [[ ${INSTALL_WAY} == 0 ]]; then
         #TLS
         wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/config_modify/tls.py https://v2ray.admplus.tk/v2ray_util/config_modify/tls.py &> /dev/null
+        #MUlTIPLE
+        wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/config_modify/multiple.py https://v2ray.admplus.tk/v2ray_util/config_modify/multiple.py &> /dev/null
         #MAIN
         wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/main.py https://v2ray.admplus.tk/v2ray_util/main.py &> /dev/null
         echo -e "\e[1;36mInstalando V2ray Español\e[0m"
