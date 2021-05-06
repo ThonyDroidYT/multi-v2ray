@@ -13,26 +13,26 @@ from ..util_core.utils import is_email, clean_iptables, random_email, ColorStr, 
 @restart(True)
 def new_port(new_stream=None):
     if new_stream != None and new_stream not in StreamType._value2member_map_:
-        print(ColorStr.red("{} not support!".format(new_stream)))
+        print(ColorStr.red("{} no soportado!".format(new_stream)))
         return
     new_port = ""
     while True:
         new_random_port = random_port(1000, 65535)
-        new_port = input("{0} {1}, {2}: ".format(_("random generate port"), ColorStr.green(str(new_random_port)), _("enter to use, or input customize port")))
+        new_port = input("{0} {1}, {2}: ".format(_("generar puerto aleatorio"), ColorStr.green(str(new_random_port)), _("enter para usar, o ingrese un puerto personalizado")))
 
         if not new_port:
             new_port = str(new_random_port)
         else:
             if not new_port.isnumeric():
-                print(_("input error, please input again"))
+                print(_("error de entrada, por favor ingrese nuevamente"))
                 continue
             elif port_is_use(new_port):
-                print(_("port is use, please input other port!"))
+                print(_("El puerto está en uso, ingrese otro puerto."))
                 continue
         break
 
     print("")
-    print("{}: {}".format(_("new port"), new_port))
+    print("{}: {}".format(_("nuevo puerto"), new_port))
     print("")
     nw = NodeWriter()
     nw.create_new_port(int(new_port))
@@ -57,12 +57,12 @@ def new_user():
             while True:
                 is_duplicate_email=False
                 remail = random_email()
-                tip = _("create random email:") + ColorStr.cyan(remail) + _(", enter to use it or input new email: ")
+                tip = _("crear correo electrónico aleatorio:") + ColorStr.cyan(remail) + _(", enter para usar o ingrese un nuevo correo electrónico: ")
                 email = input(tip)
                 if email == "":
                     email = remail
                 if not is_email(email):
-                    print(_("not email, please input again"))
+                    print(_("ningún correo electrónico, por favor ingrese nuevamente"))
                     continue
                 
                 for loop_group in group_list:
@@ -70,7 +70,7 @@ def new_user():
                         if node.user_info == None or node.user_info == '':
                             continue
                         elif node.user_info == email:
-                            print(_("have same email, please input other"))
+                            print(_("un usuario ya tiene el mismo correo electrónico, ingrese otro"))
                             is_duplicate_email = True
                             break              
                 if not is_duplicate_email:
@@ -80,7 +80,7 @@ def new_user():
             info = {'email': email}
             if type(group.node_list[0]) == Trojan:
                 random_pass = ''.join(random.sample(string.digits + string.ascii_letters, 8))
-                tip = _("create random trojan user password:") + ColorStr.cyan(random_pass) + _(", enter to use or input new password: ")
+                tip = _("crear contraseña de usuario trojan aleatorio:") + ColorStr.cyan(random_pass) + _(", enter para usar o ingrese una nueva contraseña: ")
                 password = input(tip)
                 if password == "":
                     password = random_pass
@@ -88,18 +88,18 @@ def new_user():
             elif type(group.node_list[0]) == Xtls:
                 flow_list = xtls_flow()
                 print("")
-                flow = CommonSelector(flow_list, _("please select xtls flow type: ")).select()
+                flow = CommonSelector(flow_list, _("seleccione el tipo de flujo xtls: ")).select()
                 info['flow'] = flow
             nw.create_new_user(**info)
             return True
 
         elif type(group.node_list[0]) == Socks:
-            print(_("local group is socks, please input user and password to create user"))
+            print(_("el grupo local es socks, ingrese el usuario y la contraseña para crear un usuario"))
             print("")
-            user = input(_("please input socks user: "))
-            password = input(_("please input socks password: "))
+            user = input(_("por favor ingrese usuario de socks: "))
+            password = input(_("por favor ingrese la contraseña de socks: "))
             if user == "" or password == "":
-                print(_("socks user or password is null!!"))
+                print(_("usuario o contraseña de socks nulo !!"))
                 exit(-1)
             info = {"user":user, "pass": password}
             nw = NodeWriter(group.tag, group.index)
@@ -108,11 +108,11 @@ def new_user():
 
         elif type(group.node_list[0]) == Mtproto:
             print("")
-            print(_("Mtproto protocol only support one user!!"))
+            print(_("¡El protocolo Mtproto solo admite un usuario!"))
 
         elif type(group.node_list[0]) == SS:
             print("")
-            print(_("Shadowsocks protocol only support one user, u can add new port to multiple SS!"))
+            print(_("El protocolo Shadowsocks solo admite un usuario, ¡puede agregar un nuevo puerto a múltiples SS!"))
 
 @restart()
 def del_port():
@@ -122,16 +122,16 @@ def del_port():
     if group == None:
         pass
     else:
-        print(_("del group info: "))
+        print(_("del grupo info: "))
         print(group)
-        choice = readchar(_("delete?(y/n): ")).lower()
+        choice = readchar(_("eliminar? (y/n): ")).lower()
         if choice == 'y':
             nw = NodeWriter()
             nw.del_port(group)
             clean_iptables(group.port)
             return True
         else:
-            print(_("undo delete"))
+            print(_("deshacer eliminación"))
 
 @restart()
 def del_user():
@@ -142,9 +142,9 @@ def del_user():
         pass
     else:
         client_index = cs.client_index
-        print(_("del user info:"))
+        print(_("del usuario info: "))
         print(group.show_node(client_index))
-        choice = readchar(_("delete?(y/n): ")).lower()
+        choice = readchar(_("eliminar? (y/n): ")).lower()
         if choice == 'y':
             if len(group.node_list) == 1:
                 clean_iptables(group.port)
@@ -152,4 +152,4 @@ def del_user():
             nw.del_user(group, client_index)
             return True
         else:
-            print(_("undo delete"))
+            print(_("deshacer eliminación"))
