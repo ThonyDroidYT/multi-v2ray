@@ -372,8 +372,8 @@ EOF
             }
         fi
 
-        colorEcho ${BLUE} "PUERTO:${PORT}"
-        colorEcho ${BLUE} "UUID:${UUID}"
+        colorEcho ${BLUE} "PUERTO: ${PORT}"
+        colorEcho ${BLUE} "UUID: ${UUID}"
     fi
 }
 
