@@ -531,3 +531,4 @@ main(){
 }
 
 main
+clear
