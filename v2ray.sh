@@ -260,7 +260,7 @@ installFinish() {
         #barra
         clear
         msg -bar
-        colorEcho  ${GREEN} "Información de cuenta creada"
+        colorEcho  ${GREEN} "Información de la cuenta creada"
         msg -bar
         v2ray info
         #barra
