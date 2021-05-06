@@ -46,30 +46,30 @@ def help():
     else:
         print("""
 {0} [-h|help] [options]
-    v2ray -h, help                        Consiguir ayuda
-    v2ray -v, version                   Obtener version
-    v2ray start                             Iniciar {bin}
-    v2ray stop                             Detener {bin}
-    v2ray restart                         Reiniciar {bin}
-    v2ray status                          Comprobar el estado de {bin}
-    v2ray new                              Crear un nuevo perfil json
-    v2ray update                         Actualizar {bin} a la última
+    v2ray -h, help                Consiguir ayuda
+    v2ray -v, version             Obtener version
+    v2ray start                   Iniciar {bin}
+    v2ray stop                    Detener {bin}
+    v2ray restart                 Reiniciar {bin}
+    v2ray status                  Comprobar el estado de {bin}
+    v2ray new                     Crear un nuevo perfil json
+    v2ray update                  Actualizar {bin} a la última
     v2ray update [version]        Actualizar {bin} a una versión especial
-    v2ray update.sh                    Actualizar multi-v2ray a la última versión
-    v2ray add                               Agregar nuevo grupo
-    v2ray add [protocol]            Crear un protocolo especial, nuevo puerto aleatorio
-    v2ray del                                Eliminar grupo de puertos
-    v2ray info                              Comprobar perfiles de {bin}
-    v2ray port                              Modificar puerto
-    v2ray tls                                 Modificar tls
-    v2ray tfo                                Modificar tcpFastOpen
-    v2ray stream                         Modificar protocolo
-    v2ray cdn                               Modo cdn
-    v2ray stats                             Estadísticas de tráfico de {bin}
-    v2ray iptables                        Estadísticas de tráfico de iptables
-    v2ray clean                             Limpiar el registro de {bin}
-    v2ray log                                Comprobar el registro de {bin}
-    v2ray rm                                 Desinstalar {bin}
+    v2ray update.sh               Actualizar multi-v2ray a la última versión
+    v2ray add                     Agregar nuevo grupo
+    v2ray add [protocol]          Crear un protocolo especial, nuevo puerto aleatorio
+    v2ray del                     Eliminar grupo de puertos
+    v2ray info                    Comprobar perfiles de {bin}
+    v2ray port                    Modificar puerto
+    v2ray tls                     Modificar tls
+    v2ray tfo                     Modificar tcpFastOpen
+    v2ray stream                  Modificar protocolo
+    v2ray cdn                     Modo cdn
+    v2ray stats                   Estadísticas de tráfico de {bin}
+    v2ray iptables                Estadísticas de tráfico de iptables
+    v2ray clean                   Limpiar el registro de {bin}
+    v2ray log                     Comprobar el registro de {bin}
+    v2ray rm                      Desinstalar {bin}
         """.format(exec_name[exec_name.rfind("/") + 1:], bin=run_type))
 
 def updateSh():
