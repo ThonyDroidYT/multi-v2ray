@@ -256,9 +256,12 @@ installFinish() {
         #V2AY.py 
         #wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/util_core/v2ray.py https://v2ray.admplus.tk/v2ray_util/util_core/v2ray.py &> /dev/null
         echo -e "\e[1;36mInstalando V2ray Español\e[0m"
-        fun_bar
-        v2ray restart
+        fun_bar 'v2ray restart'
         #barra
+        clear
+        msg -bar
+        colorEcho  ${GREEN} "Información de cuenta creada\n"
+        msg -bar
         v2ray info
         #barra
         echo -e "por favor ingrese el comando 'v2ray' para administrar v2ray\n"
