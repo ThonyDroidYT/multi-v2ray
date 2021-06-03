@@ -2,11 +2,6 @@
 # Author: Jrohy
 # github: https://github.com/Jrohy/multi-v2ray
 
-#
-barra () {
-bash /etc/newadm/menu --barra
-}
-
 #定时任务北京执行时间(0~23)
 BEIJING_UPDATE_TIME=3
 
@@ -252,11 +247,12 @@ installFinish() {
         #MUlTIPLE
         #wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/config_modify/multiple.py https://v2ray.admplus.tk/v2ray_util/config_modify/multiple.py &> /dev/null
         #MAIN
-        wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/main.py https://v2ray.admplus.tk/v2ray_util/main.py &> /dev/null
+        #wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/main.py https://v2ray.admplus.tk/v2ray_util/main.py &> /dev/null
         #V2AY.py 
         #wget -O /usr/local/lib/python3.6/dist-packages/v2ray_util/util_core/v2ray.py https://v2ray.admplus.tk/v2ray_util/util_core/v2ray.py &> /dev/null
-        echo -e "\e[1;36mInstalando V2ray Español\e[0m"
-        fun_bar 'v2ray restart'
+        #echo -e "\e[1;36mInstalando V2ray Español\e[0m"
+        #fun_bar 'v2ray restart'
+        V2ray restart
         #barra
         clear
         msg -bar
